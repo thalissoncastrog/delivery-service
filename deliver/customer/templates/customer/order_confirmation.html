@@ -1,0 +1,24 @@
+{% extends 'customer/base.html' %}
+
+{% block content %}
+<div class="container mb-5">
+    <div class="row justify-content-center mt-1">
+        <div class="col-md-5 col-sm-12 p-4 text-center">
+            <h1>Pedido Realizado com sucesso!</h1>
+            <p>Você vai receber uma confirmação no email em breve.</p>
+            <a href="{% url 'index' %}">Voltar para Pagina Inicial</a>
+        </div>
+    </div>
+
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-5 col-sm-12 text-center">
+            <h3 class="pb-3">Resumo do Pedido:</h3>
+            {% for item in items %}
+                <p>{{ item.name }} <span class="pl-3">{{ item.price }}</span></p>
+            {% endfor %}
+
+            <p class="font-weight-bold pt-4">Total: {{ price }}</p>
+        </div>
+    </div>
+</div>
+{% endblock content %}
